@@ -1,6 +1,7 @@
 import express from "express";
 import handlebars from "express-handlebars";
 import router from "./routes.js";
+
 const app = express();
 app.engine("hbs", handlebars.engine({
   extname: "hbs"
@@ -12,12 +13,7 @@ app.use('/static',express.static("src/public"))
 app.use(router)
 
 
-app.get('/search', (req,res) =>{
-  res.render("search");
-})
-app.get('/create', (req,res) =>{
-  res.render("create");
-})
+
 app.get('/detail', (req,res) =>{
   res.render("details");
 })
