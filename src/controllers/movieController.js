@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { findMovie } from "../services/movieService.js";
+import { create, findMovie } from "../services/movieService.js";
 
 
 const movieController = Router();
@@ -18,7 +18,9 @@ movieController.get('/:movieId/details', (req,res) =>{
 
 })
 movieController.post('/create', (req,res)=>{
-  
+  const newMovie = req.body;
+  create(newMovie);
+  res.redirect('/');
 })
 
 export default movieController

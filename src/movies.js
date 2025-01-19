@@ -4,7 +4,7 @@ export default [
     title: "Jungle Cuise",
     director: "Zack Snyder",
     genre: "Adventure",
-    imageUrl: "./static/img/jungle-cruise.jpeg",
+    imageUrl: "/static/img/jungle-cruise.jpeg",
     year: 2023,
     category: "Movie",
     description:
