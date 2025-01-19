@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { create, findMovie } from "../services/movieService.js";
+import { create, findMovie, getAll } from "../services/movieService.js";
 
 
 const movieController = Router();
@@ -9,7 +9,8 @@ movieController.get("/create", (req,res)=> {
 })
 
 movieController.get('/search', (req,res) =>{
-  res.render("search");
+  const movies = getAll();
+  res.render("search",{movies});
 })
 movieController.get('/:movieId/details', (req,res) =>{
   const movieId = req.params.movieId;
