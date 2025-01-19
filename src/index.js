@@ -1,6 +1,6 @@
 import express from "express";
 import handlebars from "express-handlebars";
-import router from "./controllers/homeController.js";
+import router from "./routes.js";
 const app = express();
 app.engine("hbs", handlebars.engine({
   extname: "hbs"
@@ -21,9 +21,7 @@ app.get('/create', (req,res) =>{
 app.get('/detail', (req,res) =>{
   res.render("details");
 })
-app.get("*", (req,res) => {
-  res.render("404")
-})
+
 app.listen(5000, () => {
   console.log("server listening on http://localhost:5000")
 })
