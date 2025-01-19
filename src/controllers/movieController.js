@@ -9,7 +9,8 @@ movieController.get("/create", (req,res)=> {
 })
 
 movieController.get('/search', (req,res) =>{
-  const movies = getAll();
+  const query = req.query;
+  const movies = getAll(query); 
   res.render("search",{movies});
 })
 movieController.get('/:movieId/details', (req,res) =>{

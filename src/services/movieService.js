@@ -9,6 +9,10 @@ export function create(movieData){
     id: newId,
     ...movieData})
 }
-export function getAll(){
-  return movies;
+export function getAll(filter = {}){
+  const result = movies
+  if(filter.search){
+    result = result.filter(movie => movie.title.toLowerCase().includes(filter.search.toLowerCase()))
+  }
+  return result;
 }
