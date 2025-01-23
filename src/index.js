@@ -2,8 +2,19 @@ import express from "express";
 import handlebars from "express-handlebars";
 import router from "./routes.js";
 import showRatingHelper from "./helpers/ratingHelper.js";
+import mongoose from "mongoose";
 
 const app = express();
+// db config 
+try{
+   const uri = 'mongodb://localhost:27017/magic-movies';
+   await mongoose.connect(uri);
+   console.log("Db connected successfully!")
+} catch (err){
+  console.error("Cannot connect to DB");
+  console.error(err.message)
+}
+//set up handlebars 
 app.engine("hbs", handlebars.engine({
   extname: "hbs",
   helpers:{
