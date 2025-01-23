@@ -12,16 +12,16 @@ export function create(movieData){
 }
 export  function getAll(filter = {}){
   let result =  Movie.find({})
-  /*
+  
   if(filter.search){
-    result = result.filter(movie => movie.title.toLowerCase().includes(filter.search.toLowerCase()))
+    result = result.find({title: filter.search})
   }
   if(filter.genre){
-    result = result.filter(movie => movie.genre.toLowerCase() === filter.genre.toLowerCase())
+    result = result.find({genre: filter.genre})
   }
   if(filter.year){
-    result = result.filter(movie => movie.year === filter.year)
+    result = result.find({year: filter.year})
   }
-    */
+    
   return result;
 }
