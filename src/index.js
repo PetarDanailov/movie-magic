@@ -3,6 +3,7 @@ import handlebars from "express-handlebars";
 import router from "./routes.js";
 import showRatingHelper from "./helpers/ratingHelper.js";
 import mongoose from "mongoose";
+import Movie from "./models/Movie.js";
 
 const app = express();
 // db config 

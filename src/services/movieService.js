@@ -1,7 +1,8 @@
 import movies from "../movies.js";
+import Movie from "../models/Movie.js";
 import {v4} from "uuid"
 export function findMovie(movieId){
-  return movies.find(movie => movie.id == movieId)
+  return Movie.findById(movieId).lean();
 }
 export function create(movieData){
   const newId = v4()
@@ -9,8 +10,9 @@ export function create(movieData){
     id: newId,
     ...movieData})
 }
-export function getAll(filter = {}){
-  let result = movies
+export  function getAll(filter = {}){
+  let result =  Movie.find({})
+  /*
   if(filter.search){
     result = result.filter(movie => movie.title.toLowerCase().includes(filter.search.toLowerCase()))
   }
@@ -20,5 +22,6 @@ export function getAll(filter = {}){
   if(filter.year){
     result = result.filter(movie => movie.year === filter.year)
   }
+    */
   return result;
 }
