@@ -1,14 +1,15 @@
 import movies from "../movies.js";
 import Movie from "../models/Movie.js";
-import {v4} from "uuid"
 export function findMovie(movieId){
   return Movie.findById(movieId).lean();
 }
 export function create(movieData){
-  const newId = v4()
+  const newMovie = Movie.create(movieData)
   movies.push({
-    id: newId,
-    ...movieData})
+    ...movieData,
+    rating: Number(movieData.rating),
+    year: Number(movieData.year),
+  });
 }
 export  function getAll(filter = {}){
   let result =  Movie.find({})

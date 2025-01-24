@@ -8,9 +8,9 @@ movieController.get("/create", (req,res)=> {
   res.render("create")
 })
 
-movieController.get('/search', (req,res) =>{
+movieController.get('/search', async (req,res) =>{
   const query = req.query;
-  const movies = getAll(query); 
+  const movies = await getAll(query).lean(); 
   res.render("search",{movies});
 })
 movieController.get('/:movieId/details', async (req,res) =>{
@@ -19,9 +19,9 @@ movieController.get('/:movieId/details', async (req,res) =>{
   res.render("details",{movie});
 
 })
-movieController.post('/create', (req,res)=>{
+movieController.post('/create', async (req,res)=>{
   const newMovie = req.body;
-  create(newMovie);
+  await create(newMovie);
   res.redirect('/');
 })
 
